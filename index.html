@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Example</title>
+  <title>Inventory Management</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Do not add `link` tags-->
@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
   <h1>Inventory Management</h1>
 
   <form id="sign-up">
@@ -52,10 +53,6 @@
     <button>Log Item</button>
   </form>
 
-  <form class='h2viewitem' id="view-item">
-    <button>View All Items</button>
-  </form>
-
 <h2 class='h2updateitem'>Update An Item</h2>
 <form id="update-item">
   <input type="text" name="item[name]" placeholder="Enter Item Name....">
@@ -65,11 +62,24 @@
   <button>Update Item</button>
 </form>
 
+<h2 class='h2viewitem'>View An Item</h2>
+<form id="view-item">
+  <input type="number" name="item[id]" placeholder="Enter Item # To Delete...">
+  <button>View Item</button>
+</form>
+
 <h2 class='h2deleteitem'>Delete An Item</h2>
 <form id="delete-item">
-  <input type="text" name="item[name]" placeholder="Enter Item Name....">
   <input type="number" name="item[id]" placeholder="Enter Item # To Delete...">
   <button>Delete</button>
 </form>
+
+<form id="view-items">
+  <h2 class='h2viewitems'>View All Items</h2>
+  <button>View All Items!</button>
+</form>
+
+<h2 id="message" class="message"></h2>
+
     </body>
 </html>
