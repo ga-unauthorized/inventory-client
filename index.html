@@ -1,17 +1,75 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <h1>Browser Template</h1>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <h1>Inventory Management</h1>
+
+  <form id="sign-up">
+    <h2 class='h2signup'>Sign Up</h2>
+    <input type='email' name="credentials[email]" placeholder="Enter email...">
+    <input type="password" name="credentials[password]" placeholder="Enter password..">
+    <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password...">
+    <button> Sign Up!</button>
+  </form>
+
+  <form id="sign-in">
+    <h2 class='h2signin'>Sign In</h2>
+    <input type="email" name="credentials[email]" placeholder="Enter Email....">
+    <input type="password" name="credentials[password]" placeholder="Enter Password...">
+    <button> Sign In!</button>
+  </form>
+  </div>
+
+  <form id="change-password">
+    <h2 class='h2changepassword'>Change Password</h2>
+    <input type="password" name="passwords[old]" placeholder="Enter old password....">
+    <input type="password" name="passwords[new]" placeholder="Enter new password....">
+    <button>Change Password!</button>
+  </form>
+
+  <form id="sign-out">
+    <h2 class='h2signout'>Sign Out</h2>
+    <button>Sign Out!</button>
+  </form>
+
+  <h2 class='h2additem'>Add Item</h2>
+  <form id="add-item">
+    <input type="text" name="item[name]" placeholder="Name....">
+    <input type="number" name="item[price]" placeholder="Price.....">
+    <input type="number" name="item[quantity]" placeholder="Quantity....">
+    <button>Log Item</button>
+  </form>
+
+  <form class='h2viewitem' id="view-item">
+    <button>View All Items</button>
+  </form>
+
+<h2 class='h2updateitem'>Update An Item</h2>
+<form id="update-item">
+  <input type="text" name="item[name]" placeholder="Enter Item Name....">
+  <input type="number" name="item[id]" placeholder="Enter Item # To Update">
+  <input type="number" name="item[price]" placeholder="Enter Price....">
+  <input type="number" name="item[quantity]" placeholder="Enter Quantity....">
+  <button>Update Item</button>
+</form>
+
+<h2 class='h2deleteitem'>Delete An Item</h2>
+<form id="delete-item">
+  <input type="text" name="item[name]" placeholder="Enter Item Name....">
+  <input type="number" name="item[id]" placeholder="Enter Item # To Delete...">
+  <button>Delete</button>
+</form>
     </body>
 </html>
