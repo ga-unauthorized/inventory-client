@@ -16,9 +16,10 @@ const failureMessage = function (newText) {
   $('form').trigger('reset')
 }
 
-const onSignUpSuccess = () => {
+const onSignUpSuccess = (responseData) => {
   successMessage('Signed up Successfully!')
   $('#message').css('color', 'green')
+  console.log('responseData', responseData)
 }
 
 const onSignUpFailure = () => {
@@ -29,6 +30,7 @@ const onSignInSuccess = (responseData) => {
   successMessage('Signed in Successfully')
   store.user = responseData.user
   $('#message').css('color', 'green')
+  console.log('responseData', responseData)
   // $('#sign-up, #sign-in').hide()
   // $('#change-password').show()
   // $('#sign-out').show()
@@ -39,9 +41,10 @@ const onSignInFailure = function () {
   failureMessage('Sign-in Failure')
 }
 
-const onChangePasswordSuccess = function () {
+const onChangePasswordSuccess = function (responseData) {
   successMessage('Changed password successfully')
   $('#message').css('color', 'green')
+  console.log('responseData', responseData)
 }
 
 const onChangePasswordFailure = function () {
@@ -49,9 +52,10 @@ const onChangePasswordFailure = function () {
   failureMessage('Changed password Failed')
 }
 
-const onSignOutSuccess = function () {
+const onSignOutSuccess = function (responseData) {
   successMessage('Sign-out successfully')
   $('#message').css('color', 'green')
+  console.log('responseData', responseData)
   // $('#sign-up, #sign-in').show()
   // $('#change-password').hide()
   // $('#sign-out').hide()
