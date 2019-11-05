@@ -25,8 +25,8 @@ const onViewItem = function (event) {
 const onViewItems = function (event) {
   event.preventDefault()
   itemApi.viewItem()
-    .then(itemUi.onViewItemSuccess)
-    .catch(itemUi.onViewItemFailure)
+    .then(itemUi.onViewItemsSuccess)
+    .catch(itemUi.onViewItemsFailure)
 }
 
 const onDeleteItem = function (event) {
