@@ -1,7 +1,7 @@
-const config = require('./config')
+const config = require('../config')
 // require `store` so we have access to our `token`
 // so the API knows who we anywhere
-const store = require('./store')
+const store = require('../store')
 
 const signUp = function (formData) {
   return $.ajax({

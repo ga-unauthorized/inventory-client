@@ -1,4 +1,4 @@
-const getFormFields = require('../../lib/get-form-fields')
+const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./auth-api')
 const ui = require('./auth-ui')
 
