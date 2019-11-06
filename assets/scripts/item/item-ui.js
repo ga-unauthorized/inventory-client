@@ -18,15 +18,15 @@
 // }
 
 const onAddItemSuccess = function (data) {
-  $('#message').text('Successfully created a new item!')
+  $('#message').text('Successfully added a new item!')
 }
 
 const onAddItemFailure = function (data) {
-  $('#message').text('Create item failure!')
+  $('#message').text('Add item failure!')
 }
 
 const onViewItemsSuccess = function (data) {
-  $('#message').text('View all items failure!')
+  $('#message').text('View all items success!')
   // $('#display-resources').html('')
   // const viewItemsHtml = viewItemsTemplate({ items: data.items })
   // $('#display-resources').append(viewItemsHtml)
@@ -38,11 +38,10 @@ const onViewItemsFailure = function () {
 }
 
 const onViewItemSuccess = function (data) {
-  $('#message').text('View all items failure!')
+  $('#message').text('View item success!')
   // const viewItemHtml = viewItemTemplate({ item: data.item })
   // $('#row-2').append(viewRecipeHtml)
   // $('#view-recipe-form').trigger('reset')
-  console.log('show item', data)
 }
 
 const onViewItemFailure = function () {
@@ -52,7 +51,6 @@ const onViewItemFailure = function () {
 const onDeleteItemSuccess = function (data) {
   $('#message').text('Item deleted successfully!')
   // setTimeout(function () { successMessage('') }, 4000)
-  console.log('delete item', data)
 }
 
 const onDeleteItemFailure = function () {
@@ -60,13 +58,13 @@ const onDeleteItemFailure = function () {
 }
 
 const onUpdateItemSuccess = function (data) {
-  $('#message').text('Successfully updated a new recipe!')
+  $('#message').text('Successfully updated a new item!')
   // setTimeout(function () { successMessage('') }, 4000)
-  console.log('update item', data)
+  // console.log('update item', data)
 }
 
 const onUpdateItemFailure = function (data) {
-  $('.message').text('Update recipe failure!')
+  $('.message').text('Update item failure!')
   // setTimeout(function () { failureMessage('') }, 4000)
 }
 
