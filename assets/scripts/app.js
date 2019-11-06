@@ -18,5 +18,6 @@ $(() => {
   // make sure view-item being singular doesn't cause errors
   $('#delete-item').on('submit', itemEvents.onDeleteItem)
   $('#update-item').on('submit', itemEvents.onUpdateItem)
+  $('#update2-item').on('submit', itemEvents.onUpdateItem2)
   $('#view-item').on('submit', itemEvents.onViewItem)
 })
