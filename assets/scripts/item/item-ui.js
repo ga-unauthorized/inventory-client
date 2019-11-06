@@ -2,8 +2,8 @@
 'use strict'
 
 // const store = require('../store')
-// const viewItemsTemplate = require('../templates/recipe-listing.handlebars')
-// const viewRecipeTemplate = require('../templates/one-recipe.handlebars')
+const viewItemsTemplate = require('../templates/items-listing.handlebars')
+const viewItemTemplate = require('../templates/item-listing.handlebars')
 
 // const successMessage = function (newText) {
 //   $('#message').text(newText)
@@ -25,12 +25,14 @@ const onAddItemFailure = function (data) {
   $('#message').text('Add item failure!')
 }
 
-const onViewItemsSuccess = function (data) {
+const onViewItemsSuccess = function (responseData) {
   $('#message').text('View all items success!')
-  // $('#display-resources').html('')
-  // const viewItemsHtml = viewItemsTemplate({ items: data.items })
-  // $('#display-resources').append(viewItemsHtml)
-  console.log('index item', data)
+  $('#item-table').html('')
+  console.log('responseData.items ', responseData.items)
+  const viewItemsHtml = viewItemsTemplate({ items: responseData.items })
+  // console.log(viewItemsHtml)
+  // console.log('responseData.items', responseData.items)
+  $('#item-table').append(viewItemsHtml)
 }
 
 const onViewItemsFailure = function () {
@@ -39,8 +41,10 @@ const onViewItemsFailure = function () {
 
 const onViewItemSuccess = function (data) {
   $('#message').text('View item success!')
-  // const viewItemHtml = viewItemTemplate({ item: data.item })
-  // $('#row-2').append(viewRecipeHtml)
+  $('#item-table').html('')
+  console.log('data is ', data)
+  const viewItemHtml = viewItemTemplate({ item: data })
+  $('#item-table').append(viewItemHtml)
   // $('#view-recipe-form').trigger('reset')
 }
 
