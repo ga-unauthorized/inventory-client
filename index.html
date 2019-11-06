@@ -17,6 +17,8 @@
 
   <h1>Inventory Management</h1>
 
+
+<!-- AUTHENTICATION -->
   <form id="sign-up">
     <h2 class='h2signup'>Sign Up</h2>
     <input type='email' name="credentials[email]" placeholder="Enter email...">
@@ -45,6 +47,8 @@
     <button>Sign Out!</button>
   </form>
 
+
+<!-- CREATE ITEM -->
   <h2 class='h2additem'>Add Item</h2>
   <form id="add-item">
     <input type="text" name="item[name]" placeholder="Name....">
@@ -53,32 +57,43 @@
     <button>Log Item</button>
   </form>
 
+
+<!-- UPDATE ITEM -->
 <h2 class='h2updateitem'>Update An Item</h2>
 <form id="update-item">
   <input type="text" name="item[name]" placeholder="Enter Item Name....">
-  <input type="number" name="item[id]" placeholder="Enter Item # To Update">
+  <input type="text" name="item[id]" placeholder="Enter Item # To Update">
   <input type="number" name="item[price]" placeholder="Enter Price....">
   <input type="number" name="item[quantity]" placeholder="Enter Quantity....">
   <button>Update Item</button>
 </form>
 
+
+<!-- SHOW ITEM -->
 <h2 class='h2viewitem'>View An Item</h2>
 <form id="view-item">
-  <input type="number" name="item[id]" placeholder="Enter Item # To Delete...">
+  <input type="text" name="item[id]" placeholder="Enter Item # To Show...">
   <button>View Item</button>
 </form>
 
+
+<!-- DELETE ITEM -->
 <h2 class='h2deleteitem'>Delete An Item</h2>
 <form id="delete-item">
-  <input type="number" name="item[id]" placeholder="Enter Item # To Delete...">
+  <input type="text" name="item[id]" placeholder="Enter Item # To Delete...">
   <button>Delete</button>
 </form>
 
+
+<!-- INDEX ITEMS -->
 <form id="view-items">
   <h2 class='h2viewitems'>View All Items</h2>
   <button>View All Items!</button>
 </form>
 
+
+
+<!-- USER MESSAGE -->
 <h2 id="message" class="message"></h2>
 <!-- <div>
   <h4 id="display-resources" class="resources-display"></h4>

@@ -14,17 +14,18 @@ const onAddItem = function (event) {
 
 const onViewItem = function (event) {
   event.preventDefault()
-
+  console.log('events.js')
   const form = event.target
   const formData = getFormFields(form)
-  itemApi.viewItem(formData)
+  console.log('formData', formData.item.id)
+  itemApi.viewItem(formData.item.id)
     .then(itemUi.onViewItemSuccess)
     .catch(itemUi.onViewItemFailure)
 }
 
 const onViewItems = function (event) {
   event.preventDefault()
-  itemApi.viewItem()
+  itemApi.viewItems()
     .then(itemUi.onViewItemsSuccess)
     .catch(itemUi.onViewItemsFailure)
 }
@@ -32,6 +33,7 @@ const onViewItems = function (event) {
 const onDeleteItem = function (event) {
   event.preventDefault()
   const formData = getFormFields(event.target)
+  console.log('formData', formData)
   itemApi.deleteItem(formData)
     .then(itemUi.onDeleteItemSuccess)
     .catch(itemUi.onDeleteItemFailure)
@@ -40,6 +42,7 @@ const onDeleteItem = function (event) {
 const onUpdateItem = function (event) {
   event.preventDefault()
   const formData = getFormFields(event.target)
+  console.log('formData', formData)
   itemApi.updateItem(formData)
     .then(itemUi.onUpdateItemSuccess)
     .catch(itemUi.onUpdateItemFailure)
