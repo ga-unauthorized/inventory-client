@@ -4,6 +4,7 @@
 // const store = require('../store')
 const viewItemsTemplate = require('../templates/items-listing.handlebars')
 const viewItemTemplate = require('../templates/item-listing.handlebars')
+const itemApi = require('./item-api.js')
 
 // const successMessage = function (newText) {
 //   $('#message').text(newText)
@@ -72,6 +73,98 @@ const onUpdateItemFailure = function (data) {
   // setTimeout(function () { failureMessage('') }, 4000)
 }
 
+const onViewItemsSuccess2 = function (responseData) {
+  console.log('onViewItemsSuccess2 responseData.items', responseData.items)
+
+  const itemName = $('#update2-name').val()
+  let itemPrice = $('#update2-price').val()
+  const itemQuantity = $('#update2-quantity').val()
+
+  console.log('val', itemName)
+  console.log('val', itemPrice)
+  console.log('val', itemQuantity)
+
+  const dataObj = {
+    item: {
+      name: itemName,
+      price: itemPrice,
+      quantity: itemQuantity
+    }
+  }
+
+  const hugeArray = responseData.items
+  let num = 0
+  hugeArray.forEach(function (element) {
+    if (element.name === itemName) {
+      num = 1
+      // console.log('element', element)
+      // console.log('element.quantity', element.quantity)
+      // console.log('itemQuantity', parseInt(itemQuantity))
+      // console.log('element.quantity + itemQuantity', parseInt(element.quantity) + parseInt(itemQuantity))
+      const quantityAfterUpdate = parseInt(element.quantity) + parseInt(itemQuantity)
+
+      if (itemPrice < 0) {
+        itemPrice = element.price
+      }
+
+      // console.log('quantityAfterUpdate', quantityAfterUpdate)
+      if (quantityAfterUpdate <= 0) {
+        $('#message').text('Item is out of stock!')
+
+        console.log('element', element)
+        console.log('element.quantity', element.quantity)
+        console.log('element.id', element.id)
+
+        // if (itemPrice < 0) {
+        //
+        // }
+
+        const dataObjOut = {
+          item: {
+            id: element.id,
+            name: itemName,
+            price: itemPrice,
+            quantity: 0
+          }
+        }
+        console.log('dataObjOut', dataObjOut)
+        itemApi.updateItem(dataObjOut)
+          .then(onUpdateItemSuccess)
+          .catch(onUpdateItemFailure)
+      } else {
+        console.log('element', element)
+        console.log('element.quantity', element.quantity)
+        console.log('element.id', element.id)
+
+        const dataObjOut = {
+          item: {
+            id: element.id,
+            name: itemName,
+            price: itemPrice,
+            quantity: quantityAfterUpdate
+          }
+        }
+        console.log('dataObjOut', dataObjOut)
+        itemApi.updateItem(dataObjOut)
+          .then(onUpdateItemSuccess)
+          .catch(onUpdateItemFailure)
+      }
+      console.log('there it is')
+    }
+  })
+  console.log('num', num)
+  if (num === 0) {
+    if (itemPrice >= 0) {
+      console.log('dataObj', dataObj)
+      itemApi.addItem(dataObj)
+        .then(onAddItemSuccess)
+        .catch(onAddItemFailure)
+    } else {
+      $('#message').text('Please try again! Enter valid price!')
+    }
+  }
+}
+
 module.exports = {
   onAddItemSuccess,
   onAddItemFailure,
@@ -82,5 +175,6 @@ module.exports = {
   onDeleteItemSuccess,
   onDeleteItemFailure,
   onUpdateItemSuccess,
-  onUpdateItemFailure
+  onUpdateItemFailure,
+  onViewItemsSuccess2
 }

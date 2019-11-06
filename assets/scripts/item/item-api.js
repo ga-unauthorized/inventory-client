@@ -55,6 +55,17 @@ const updateItem = function (formData) {
   })
 }
 
+// const updateItem2 = function (formData, id) {
+//   return $.ajax({
+//     method: 'PATCH',
+//     url: config.apiUrl + '/items/' + id,
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data: formData
+//   })
+// }
+
 module.exports = {
   addItem,
   viewItems,

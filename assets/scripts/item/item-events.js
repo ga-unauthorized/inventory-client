@@ -7,6 +7,7 @@ const onAddItem = function (event) {
 
   const form = event.target
   const formData = getFormFields(form)
+  console.log('addItem formData', formData)
   itemApi.addItem(formData)
     .then(itemUi.onAddItemSuccess)
     .catch(itemUi.onAddItemFailure)
@@ -48,10 +49,23 @@ const onUpdateItem = function (event) {
     .catch(itemUi.onUpdateItemFailure)
 }
 
+const onUpdateItem2 = function (event) {
+  event.preventDefault()
+  const formData = getFormFields(event.target)
+  console.log('update2 formData', formData)
+  itemApi.viewItems()
+    .then(itemUi.onViewItemsSuccess2)
+    .catch(itemUi.onViewItemsFailure)
+  // itemApi.updateItem(formData)
+  //   .then(itemUi.onUpdateItemSuccess)
+  //   .catch(itemUi.onUpdateItemFailure)
+}
+
 module.exports = {
   onAddItem,
   onViewItem,
   onViewItems,
   onDeleteItem,
-  onUpdateItem
+  onUpdateItem,
+  onUpdateItem2
 }
