@@ -23,7 +23,7 @@ const itemApi = require('./item-api.js')
 
 const onAddItemSuccess = function (data) {
   $('#message').text('Successfully added a new item!')
-  $('#add-update-item-form').trigger('reset')
+  $('#update2-item').trigger('reset')
 }
 
 const onAddItemFailure = function (data) {
