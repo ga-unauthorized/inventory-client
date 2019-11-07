@@ -199,6 +199,31 @@ const onViewItemsSuccess2 = function (responseData) {
   }
 }
 
+const onViewItemsSuccess3 = function (responseData) {
+  console.log('onViewItemsSuccess3 responseData', responseData)
+  console.log('onViewItemsSuccess3 responseData.items', responseData.items)
+
+  // var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present']
+  // const result = words.filter(word => word.length > 6)
+
+  const itemArray = responseData.items
+  console.log('itemArray ', itemArray)
+  const itemName = $('#view-item-name').val()
+  console.log('itemName ', itemName)
+  const itemResult = itemArray.filter(item => item.name === itemName)
+  console.log('itemResult ', itemResult)
+  console.log('itemResult.length ', itemResult.length)
+  if (itemResult.length === 0) {
+    $('#item-table').html('')
+  }
+  console.log('itemResult[0] ', itemResult[0])
+  console.log('itemResult[0].id ', itemResult[0].id)
+
+  itemApi.viewItem(itemResult[0].id)
+    .then(onViewItemSuccess)
+    .catch(onViewItemFailure)
+}
+
 module.exports = {
   onAddItemSuccess,
   onAddItemFailure,
@@ -210,5 +235,6 @@ module.exports = {
   onDeleteItemFailure,
   onUpdateItemSuccess,
   onUpdateItemFailure,
-  onViewItemsSuccess2
+  onViewItemsSuccess2,
+  onViewItemsSuccess3
 }
