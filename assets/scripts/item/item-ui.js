@@ -2,7 +2,7 @@
 'use strict'
 
 // const store = require('../store')
-import QRCode from 'qrcode-reader'
+// import QRCode from 'qrcode-reader'
 const viewItemsTemplate = require('../templates/items-listing.handlebars')
 const viewItemTemplate = require('../templates/item-listing.handlebars')
 const itemClickmTemplate = require('../templates/item-click.handlebars')
@@ -34,11 +34,11 @@ const onItemClickSuccess = function (responseData) {
   $('#modal-body').html('')
   $('#modal-body').append(clickItemHTMl)
 
-  const qrcode = new QRCode('qrcode')
-  function makeCode () {
-    qrcode.makeCode('name: Jieming\n age: 21')
-  }
-  makeCode()
+  // const qrcode = new QRCode('qrcode')
+  // function makeCode () {
+  //   qrcode.makeCode('name: Jieming age: 21')
+  // }
+  // makeCode()
 }
 
 const onItemClick = function (event) {
@@ -133,8 +133,6 @@ const onViewItemsSuccess2 = function (responseData) {
 
       // console.log('quantityAfterUpdate', quantityAfterUpdate)
       if (quantityAfterUpdate <= 0) {
-        $('#message').text('Item is out of stock!')
-
         console.log('element', element)
         console.log('element.quantity', element.quantity)
         console.log('element.id', element.id)
@@ -155,6 +153,7 @@ const onViewItemsSuccess2 = function (responseData) {
         itemApi.updateItem(dataObjOut)
           .then(onUpdateItemSuccess)
           .catch(onUpdateItemFailure)
+        $('#message').text('Item is out of stock!')
       } else {
         console.log('element', element)
         console.log('element.quantity', element.quantity)
