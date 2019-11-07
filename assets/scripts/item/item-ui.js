@@ -70,6 +70,7 @@ const onViewItemsSuccess = function (responseData) {
   // console.log('responseData.items', responseData.items)
   $('#item-table').append(viewItemsHtml)
   $('.itemClick').on('click', onItemClick)
+  $('.table').show()
 }
 
 const onViewItemsFailure = function () {

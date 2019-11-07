@@ -34,8 +34,12 @@ const onSignInSuccess = (responseData) => {
   console.log('responseData', responseData)
   $('#sign-in').trigger('reset')
   $('#sign-up, #sign-in').hide()
-  // $('#change-password').show()
-  // $('#sign-out').show()
+  $('#change-password').show()
+  $('#sign-out').show()
+  $('.navbar').show()
+  $('.footer').show()
+  $('.table').hide()
+  $('#view-items').show()
 }
 
 const onSignInFailure = function () {
@@ -61,11 +65,17 @@ const onChangePasswordFailure = function () {
 
 const onSignOutSuccess = function (responseData) {
   successMessage('Sign-out successfully')
+  setTimeout(function () { successMessage('') }, 1000)
   $('#message').css('color', 'green')
   console.log('responseData', responseData)
-  // $('#sign-up, #sign-in').show()
-  // $('#change-password').hide()
-  // $('#sign-out').hide()
+  $('#sign-up, #sign-in').show()
+  $('#change-password').hide()
+  $('#sign-out').hide()
+  $('.navbar').hide()
+  $('.footer').hide()
+  $('.table').hide()
+  $('#view-items').hide()
+  $('#exampleModal').modal('hide').data('bs.modal', null)
 }
 
 const onSignOutFailure = function () {
