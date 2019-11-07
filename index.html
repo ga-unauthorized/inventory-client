@@ -34,18 +34,12 @@
         <a class="nav-link" href="#" id="home">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Item 1</a>
+        <a class="nav-link" data-toggle="modal" data-target="#Update-Modal" href="#">Add or Update An Item</a>
+
       </li>
       <li class="nav-item">
-        <a
-          class="nav-link nav-link-collapse"
-          href="#"
-          id="hasSubItems"
-          data-toggle="collapse"
-          data-target="#collapseSubItems2"
-          aria-controls="collapseSubItems2"
-          aria-expanded="false"
-        >Item 2</a>
+          <a class="nav-link" data-toggle="modal" data-target="#Show-Modal"
+        >View An Item</a>
         <ul class="nav-second-level collapse" id="collapseSubItems2" data-parent="#navAccordion">
           <li class="nav-item">
             <a class="nav-link" href="#">
@@ -60,7 +54,7 @@
         </ul>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Item 3</a>
+          <a class="nav-link" data-toggle="modal" data-target="#Delete-Modal">Delete Item</a>
       </li>
       <li class="nav-item">
         <a
@@ -111,7 +105,7 @@
 
 
   <!-- AUTHENTICATION -->
-    <form id="sign-up">
+    <form id="sign-up" class="sign-up">
       <h2 class='h2signup'>Sign Up</h2>
       <input type='email' name="credentials[email]" placeholder="Enter email...">
       <input type="password" name="credentials[password]" placeholder="Enter password..">
@@ -119,7 +113,7 @@
       <button> Sign Up!</button>
     </form>
 
-    <form id="sign-in">
+    <form id="sign-in" class="sign-in">
       <h2 class='h2signin'>Sign In</h2>
       <input type="email" name="credentials[email]" placeholder="Enter Email....">
       <input type="password" name="credentials[password]" placeholder="Enter Password...">
@@ -161,34 +155,34 @@
   </form> -->
 
   <!-- UPDATE ITEM -->
-  <h2 class='h2updateitem'>Add/Update An Item</h2>
+  <!-- <h2 class='h2updateitem'>Add/Update An Item</h2>
   <form id="update2-item">
     <input id="update2-name" type="text" name="item[name]" placeholder="Enter Item Name....">
     <input id="update2-price" type="number" name="item[price]" placeholder="Enter Price....">
     <input id="update2-quantity" type="number" name="item[quantity]" placeholder="Enter Quantity....">
     <button>Update Item</button>
-  </form>
+  </form> -->
 
   <!-- SHOW ITEM -->
-  <h2 class='h2viewitem'>View An Item</h2>
+  <!-- <h2 class='h2viewitem'>View An Item</h2>
   <form id="view-item">
     <input type="text" name="item[id]" placeholder="Enter Item # To Show...">
     <button>View Item</button>
-  </form>
+  </form> -->
 
 
   <!-- DELETE ITEM -->
-  <h2 class='h2deleteitem'>Delete An Item</h2>
+  <!-- <h2 class='h2deleteitem'>Delete An Item</h2>
   <form id="delete-item">
     <input type="text" name="item[id]" placeholder="Enter Item # To Delete...">
     <button>Delete</button>
-  </form>
+  </form> -->
 
 
   <!-- INDEX ITEMS -->
   <form id="view-items">
-    <h2 class='h2viewitems'>View All Items</h2>
-    <button>View All Items!</button>
+    <!-- <h2 class='h2viewitems'>View All Items</h2> -->
+    <button class="btn btn-primary">View All Items!</button>
   </form>
 
 
@@ -282,6 +276,85 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ADD / UPDATE ITEMS MODAL -->
+<!-- Modal -->
+<div class="modal fade" id="Update-Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add or Update An Item</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="update2-item">
+          <input id="update2-name" type="text" name="item[name]" placeholder="Enter Item Name....">
+          <input id="update2-price" type="number" name="item[price]" placeholder="Enter Price....">
+          <input id="update2-quantity" type="number" name="item[quantity]" placeholder="Enter Quantity....">
+          <button>Update Item</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- SHOW AN ITEM MODAL -->
+<!-- Modal -->
+<div class="modal fade" id="Show-Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">View An Item</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="view-item">
+          <input type="text" name="item[name]" placeholder="Enter Item Name...">
+          <button>View Item</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- DELETE ITEM MODAL -->
+<!-- Modal -->
+<div class="modal fade" id="Delete-Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">View An Item</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="delete-item">
+          <input type="text" name="item[name]" placeholder="Enter Item Name To Delete...">
+          <button>Delete</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
       </div>
     </div>
   </div>
