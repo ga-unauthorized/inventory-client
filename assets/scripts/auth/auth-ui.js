@@ -28,10 +28,12 @@ const onSignUpFailure = () => {
 }
 const onSignInSuccess = (responseData) => {
   successMessage('Signed in Successfully')
+  setTimeout(function () { successMessage('') }, 1000)
   store.user = responseData.user
   $('#message').css('color', 'green')
   console.log('responseData', responseData)
-  // $('#sign-up, #sign-in').hide()
+  $('#sign-in').trigger('reset')
+  $('#sign-up, #sign-in').hide()
   // $('#change-password').show()
   // $('#sign-out').show()
 }
@@ -39,17 +41,22 @@ const onSignInSuccess = (responseData) => {
 const onSignInFailure = function () {
   $('#message').css('color', 'red')
   failureMessage('Sign-in Failure')
+  setTimeout(function () { failureMessage('') }, 1000)
+  $('#sign-in').trigger('reset')
 }
 
 const onChangePasswordSuccess = function (responseData) {
   successMessage('Changed password successfully')
   $('#message').css('color', 'green')
+  setTimeout(function () { successMessage('') }, 1000)
   console.log('responseData', responseData)
+  $('#change-password').trigger('reset')
 }
 
 const onChangePasswordFailure = function () {
   $('#message').css('color', 'red')
   failureMessage('Changed password Failed')
+  $('#change-password').trigger('reset')
 }
 
 const onSignOutSuccess = function (responseData) {
