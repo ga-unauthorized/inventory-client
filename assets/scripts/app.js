@@ -20,15 +20,4 @@ $(() => {
   $('#update-item').on('submit', itemEvents.onUpdateItem)
   $('#update2-item').on('submit', itemEvents.onUpdateItem2)
   $('#view-item').on('submit', itemEvents.onViewItem)
-
-  // const allert = function () {
-  //   alert('Hello')
-  // }
-  // $('#home').on('click', allert)
-  // $(document).ready(function () {
-  //   $('.nav-link-collapse').on('click', function () {
-  //     $('.nav-link-collapse').not(this).removeClass('nav-link-show')
-  //     $(this).toggleClass('nav-link-show')
-  //   })
-  // })
 })
