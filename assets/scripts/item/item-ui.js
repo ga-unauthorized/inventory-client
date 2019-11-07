@@ -3,6 +3,7 @@
 
 // const store = require('../store')
 // import QRCode from 'qrcode-reader'
+const QRCode = require('qrcode')
 const viewItemsTemplate = require('../templates/items-listing.handlebars')
 const viewItemTemplate = require('../templates/item-listing.handlebars')
 const itemClickmTemplate = require('../templates/item-click.handlebars')
@@ -30,15 +31,25 @@ const onAddItemFailure = function (data) {
 
 const onItemClickSuccess = function (responseData) {
   console.log('onItemClickSuccess responseData', responseData)
+  console.log('onItemClickSuccess responseData.item.id', responseData.item.id)
+  console.log('onItemClickSuccess responseData.item.name', responseData.item.name)
+  console.log('onItemClickSuccess responseData.item.price', responseData.item.price)
+  console.log('onItemClickSuccess responseData.item.quantity', responseData.item.quantity)
+  console.log('onItemClickSuccess responseData.item.createdAt', responseData.item.createdAt)
+  console.log('onItemClickSuccess responseData.item.updatedAt', responseData.item.updatedAt)
   const clickItemHTMl = itemClickmTemplate({ item: responseData })
+  console.log('clickItemHTMl', clickItemHTMl)
   $('#modal-body').html('')
   $('#modal-body').append(clickItemHTMl)
 
-  // const qrcode = new QRCode('qrcode')
-  // function makeCode () {
-  //   qrcode.makeCode('name: Jieming age: 21')
-  // }
-  // makeCode()
+  const canvas = document.getElementById('canvas')
+  console.log('canvas', canvas)
+  const infoQRCODE = 'Item Information:  Name: ' + responseData.item.name + ' Price: ' + responseData.item.price + ' Quantity: ' + responseData.item.quantity + ' CreateDate: ' + responseData.item.createdAt + ' UpdateDate: ' + responseData.item.updatedAt
+  console.log('infoQRCODE', infoQRCODE)
+  QRCode.toCanvas(canvas, infoQRCODE, function (error) {
+    if (error) console.error(error)
+    console.log('success!')
+  })
 }
 
 const onItemClick = function (event) {
