@@ -4,6 +4,7 @@
 // const store = require('../store')
 const viewItemsTemplate = require('../templates/items-listing.handlebars')
 const viewItemTemplate = require('../templates/item-listing.handlebars')
+const itemClickmTemplate = require('../templates/item-click.handlebars')
 const itemApi = require('./item-api.js')
 
 // const successMessage = function (newText) {
@@ -26,6 +27,20 @@ const onAddItemFailure = function (data) {
   $('#message').text('Add item failure!')
 }
 
+const onItemClickSuccess = function (responseData) {
+  console.log('onItemClickSuccess responseData', responseData)
+  const clickItemHTMl = itemClickmTemplate({ item: responseData })
+  $('#modal-body').html('')
+  $('#modal-body').append(clickItemHTMl)
+}
+
+const onItemClick = function (event) {
+  console.log('event.id', event.target.parentElement.id)
+  itemApi.viewItem(event.target.parentElement.id)
+    .then(onItemClickSuccess)
+    .catch()
+}
+
 const onViewItemsSuccess = function (responseData) {
   $('#message').text('View all items success!')
   $('#item-table').html('')
@@ -34,6 +49,7 @@ const onViewItemsSuccess = function (responseData) {
   // console.log(viewItemsHtml)
   // console.log('responseData.items', responseData.items)
   $('#item-table').append(viewItemsHtml)
+  $('.itemClick').on('click', onItemClick)
 }
 
 const onViewItemsFailure = function () {
