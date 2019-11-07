@@ -23,6 +23,7 @@ const itemApi = require('./item-api.js')
 
 const onAddItemSuccess = function (data) {
   $('#message').text('Successfully added a new item!')
+  $('#add-update-item-form').trigger('reset')
 }
 
 const onAddItemFailure = function (data) {
@@ -81,30 +82,34 @@ const onViewItemSuccess = function (data) {
   console.log('data is ', data)
   const viewItemHtml = viewItemTemplate({ item: data })
   $('#item-table').append(viewItemHtml)
-  // $('#view-recipe-form').trigger('reset')
+  $('#view-item').trigger('reset')
 }
 
 const onViewItemFailure = function () {
   $('#message').text('View item failure!')
+  $('#view-item').trigger('reset')
 }
 
 const onDeleteItemSuccess = function (data) {
   $('#message').text('Item deleted successfully!')
+  $('#delete-item').trigger('reset')
   // setTimeout(function () { successMessage('') }, 4000)
 }
 
 const onDeleteItemFailure = function () {
   $('#message').text('Item delete failure!')
+  $('#delete-item').trigger('reset')
 }
 
 const onUpdateItemSuccess = function (data) {
   $('#message').text('Successfully updated a new item!')
+  $('#add-update-item-form').trigger('reset')
   // setTimeout(function () { successMessage('') }, 4000)
-  // console.log('update item', data)
 }
 
 const onUpdateItemFailure = function (data) {
   $('.message').text('Update item failure!')
+  $('#add-update-item-form').trigger('reset')
   // setTimeout(function () { failureMessage('') }, 4000)
 }
 
