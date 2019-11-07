@@ -224,6 +224,35 @@ const onViewItemsSuccess3 = function (responseData) {
     .catch(onViewItemFailure)
 }
 
+// responseData is from API
+const onViewItemsSuccess4 = function (responseData) {
+  console.log('responseData', responseData)
+  const itemArray = responseData.items
+  console.log('itemArray ', itemArray)
+  const itemName = $('#delete-item-name').val()
+  const itemResult = itemArray.filter(item => item.name === itemName)
+  console.log('itemResult ', itemResult)
+  console.log('itemResult.length ', itemResult.length)
+  if (itemResult.length === 0) {
+    // item not exist
+    $('#item-table').html('')
+  } else {
+    // item exist
+    console.log('itemResult[0] ', itemResult[0])
+    console.log('itemResult[0].id ', itemResult[0].id)
+    const dataObj = {
+      item: {
+        id: itemResult[0].id
+      }
+    }
+    console.log('dataObj', dataObj)
+
+    itemApi.deleteItem(dataObj)
+      .then(onDeleteItemSuccess)
+      .catch(onDeleteItemFailure)
+  }
+}
+
 module.exports = {
   onAddItemSuccess,
   onAddItemFailure,
@@ -236,5 +265,6 @@ module.exports = {
   onUpdateItemSuccess,
   onUpdateItemFailure,
   onViewItemsSuccess2,
-  onViewItemsSuccess3
+  onViewItemsSuccess3,
+  onViewItemsSuccess4
 }

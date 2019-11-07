@@ -38,11 +38,15 @@ const onViewItems = function (event) {
 
 const onDeleteItem = function (event) {
   event.preventDefault()
-  const formData = getFormFields(event.target)
-  console.log('formData', formData)
-  itemApi.deleteItem(formData)
-    .then(itemUi.onDeleteItemSuccess)
-    .catch(itemUi.onDeleteItemFailure)
+  // const formData = getFormFields(event.target)
+  // console.log('formData', formData)
+  // console.log('formData.item.name', formData.item.name)
+  itemApi.viewItems()
+    .then(itemUi.onViewItemsSuccess4)
+    .catch(itemUi.onViewItemsFailure)
+  // itemApi.deleteItem(formData)
+  //   .then(itemUi.onDeleteItemSuccess)
+  //   .catch(itemUi.onDeleteItemFailure)
 }
 
 const onUpdateItem = function (event) {
