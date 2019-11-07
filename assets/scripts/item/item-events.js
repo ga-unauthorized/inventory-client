@@ -18,10 +18,15 @@ const onViewItem = function (event) {
   console.log('events.js')
   const form = event.target
   const formData = getFormFields(form)
-  console.log('formData', formData.item.id)
-  itemApi.viewItem(formData.item.id)
-    .then(itemUi.onViewItemSuccess)
-    .catch(itemUi.onViewItemFailure)
+  console.log('formData', formData)
+  console.log('formData.item', formData.item)
+  console.log('formData.item.name', formData.item.name)
+  itemApi.viewItems()
+    .then(itemUi.onViewItemsSuccess3)
+    .catch(itemUi.onViewItemsFailure)
+  // itemApi.viewItem(formData.item.id)
+  //   .then(itemUi.onViewItemSuccess)
+  //   .catch(itemUi.onViewItemFailure)
 }
 
 const onViewItems = function (event) {
@@ -33,11 +38,15 @@ const onViewItems = function (event) {
 
 const onDeleteItem = function (event) {
   event.preventDefault()
-  const formData = getFormFields(event.target)
-  console.log('formData', formData)
-  itemApi.deleteItem(formData)
-    .then(itemUi.onDeleteItemSuccess)
-    .catch(itemUi.onDeleteItemFailure)
+  // const formData = getFormFields(event.target)
+  // console.log('formData', formData)
+  // console.log('formData.item.name', formData.item.name)
+  itemApi.viewItems()
+    .then(itemUi.onViewItemsSuccess4)
+    .catch(itemUi.onViewItemsFailure)
+  // itemApi.deleteItem(formData)
+  //   .then(itemUi.onDeleteItemSuccess)
+  //   .catch(itemUi.onDeleteItemFailure)
 }
 
 const onUpdateItem = function (event) {
