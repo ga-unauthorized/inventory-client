@@ -51,6 +51,7 @@ const onItemClick = function (event) {
 
 const onViewItemsSuccess = function (responseData) {
   $('#message').text('View all items success!')
+  setTimeout(function () { successMessage('') }, 1000)
   $('#item-table').html('')
   console.log('responseData.items ', responseData.items)
   const viewItemsHtml = viewItemsTemplate({ items: responseData.items })
@@ -58,6 +59,7 @@ const onViewItemsSuccess = function (responseData) {
   // console.log('responseData.items', responseData.items)
   $('#item-table').append(viewItemsHtml)
   $('.itemClick').on('click', onItemClick)
+  $('.table').show()
 }
 
 const onViewItemsFailure = function () {

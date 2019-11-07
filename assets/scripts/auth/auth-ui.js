@@ -28,12 +28,17 @@ const onSignUpFailure = () => {
 }
 const onSignInSuccess = (responseData) => {
   successMessage('Signed in Successfully')
+  setTimeout(function () { successMessage('') }, 1000)
   store.user = responseData.user
   $('#message').css('color', 'green')
   console.log('responseData', responseData)
-  // $('#sign-up, #sign-in').hide()
-  // $('#change-password').show()
-  // $('#sign-out').show()
+  $('#sign-up, #sign-in').hide()
+  $('#change-password').show()
+  $('#sign-out').show()
+  $('.navbar').show()
+  $('#view-items').show()
+  $('.table').hide()
+  $('.footer').show()
 }
 
 const onSignInFailure = function () {
@@ -54,11 +59,17 @@ const onChangePasswordFailure = function () {
 
 const onSignOutSuccess = function (responseData) {
   successMessage('Sign-out successfully')
+  setTimeout(function () { successMessage('') }, 1000)
   $('#message').css('color', 'green')
   console.log('responseData', responseData)
-  // $('#sign-up, #sign-in').show()
-  // $('#change-password').hide()
-  // $('#sign-out').hide()
+  $('#sign-up, #sign-in').show()
+  $('#change-password').hide()
+  $('#sign-out').hide()
+  $('.navbar').hide()
+  $('#view-items').hide()
+  $('.table').hide()
+  $('.footer').hide()
+  $('#exampleModal').modal('hide').data('bs.modal', null)
 }
 
 const onSignOutFailure = function () {
