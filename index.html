@@ -100,8 +100,8 @@
       <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Launch demo modal
+      <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
+        <img src="https://i.imgur.com/mQUkipa.png" alt="Smiley face" height="42" width="42">
       </button>
     </form>
   </div>
@@ -109,7 +109,7 @@
 
 <main class="content-wrapper">
   <div class="container-fluid">
-    <h1>Inventory Management</h1>
+    <!-- <h1>Inventory Management</h1> -->
 
 
   <!-- AUTHENTICATION -->
@@ -129,7 +129,7 @@
     </form>
 
 
-    <form id="change-password">
+    <!-- <form id="change-password">
       <h2 class='h2changepassword'>Change Password</h2>
       <input type="password" name="passwords[old]" placeholder="Enter old password....">
       <input type="password" name="passwords[new]" placeholder="Enter new password....">
@@ -139,31 +139,31 @@
     <form id="sign-out">
       <h2 class='h2signout'>Sign Out</h2>
       <button>Sign Out!</button>
-    </form>
+    </form> -->
 
 
   <!-- CREATE ITEM -->
-    <h2 class='h2additem'>Add Item</h2>
+    <!-- <h2 class='h2additem'>Add Item</h2>
     <form id="add-item">
       <input type="text" name="item[name]" placeholder="Name....">
       <input type="number" name="item[price]" placeholder="Price.....">
       <input type="number" name="item[quantity]" placeholder="Quantity....">
       <button>Log Item</button>
-    </form>
+    </form> -->
 
 
   <!-- UPDATE ITEM -->
-  <h2 class='h2updateitem'>Update An Item</h2>
+  <!-- <h2 class='h2updateitem'>Update An Item</h2>
   <form id="update-item">
     <input type="text" name="item[name]" placeholder="Enter Item Name....">
     <input type="text" name="item[id]" placeholder="Enter Item # To Update">
     <input type="number" name="item[price]" placeholder="Enter Price....">
     <input type="number" name="item[quantity]" placeholder="Enter Quantity....">
     <button>Update Item</button>
-  </form>
+  </form> -->
 
   <!-- UPDATE ITEM -->
-  <h2 class='h2updateitem'>Update2 An Item</h2>
+  <h2 class='h2updateitem'>Add/Update An Item</h2>
   <form id="update2-item">
     <input id="update2-name" type="text" name="item[name]" placeholder="Enter Item Name....">
     <input id="update2-price" type="number" name="item[price]" placeholder="Enter Price....">
@@ -199,7 +199,7 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">#</th>
+        <!-- <th scope="col">#</th> -->
         <th scope="col">Name</th>
         <th scope="col">Price</th>
         <th scope="col">Quantity</th>
@@ -235,22 +235,53 @@
   </div>
 </main>
 
-<!-- Modal -->
+<!-- Modal pop up -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">User Account</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <form id="change-password">
+          <h4 class='h2changepassword'>Change Password</h4>
+          <input type="password" name="passwords[old]" placeholder="Enter old password....">
+          <input type="password" name="passwords[new]" placeholder="Enter new password....">
+          <button>Change Password!</button>
+        </form>
+        <br>
+        <form id="sign-out">
+          <h4 class='h2signout'>Sign Out</h4>
+          <button>Sign Out!</button>
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal2 pop up for item -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Item Information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
       </div>
     </div>
   </div>
@@ -259,13 +290,11 @@
 <footer class="footer">
   <div class="container">
       <div class="text-center">
-          <span>Coded by <a href="https://si-dev.com/ru">SI-Dev</a>, 2018</span>
+          <!-- <span>Coded by <a href="https://si-dev.com/ru">SI-Dev</a>, 2018</span> -->
+          <span>Coded by <a href="">Team Unauthorized</a>, 2019</span>
       </div>
   </div>
 </footer>
   <!-- nav bar end   -->
-
-
-
     </body>
 </html>
