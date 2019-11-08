@@ -24,10 +24,13 @@ const itemApi = require('./item-api.js')
 const onAddItemSuccess = function (data) {
   $('#message').text('Successfully added a new item!')
   $('#update2-item').trigger('reset')
+  setTimeout(function () { $('#message').text('') }, 2000)
 }
 
 const onAddItemFailure = function (data) {
   $('#message').text('Add item failure!')
+  $('#update2-item').trigger('reset')
+  setTimeout(function () { $('#message').text('') }, 2000)
 }
 
 const onItemClickSuccess = function (responseData) {
@@ -63,7 +66,9 @@ const onItemClick = function (event) {
 
 const onViewItemsSuccess = function (responseData) {
   $('#message').text('View all items success!')
+  setTimeout(function () { $('#message').text('') }, 2000)
   $('#item-table').html('')
+  // setTimeout(function () { successMessage('') }, 4000)
   console.log('responseData.items ', responseData.items)
   const viewItemsHtml = viewItemsTemplate({ items: responseData.items })
   // console.log(viewItemsHtml)
@@ -75,10 +80,13 @@ const onViewItemsSuccess = function (responseData) {
 
 const onViewItemsFailure = function () {
   $('#message').text('View all items failure!')
+  setTimeout(function () { $('#message').text('') }, 2000)
 }
 
 const onViewItemSuccess = function (data) {
   $('#message').text('View item success!')
+  setTimeout(function () { $('#message').text('') }, 2000)
+  // setTimeout(function () { successMessage('') }, 4000)
   $('#item-table').html('')
   console.log('data is ', data)
   const viewItemHtml = viewItemTemplate({ item: data })
@@ -88,28 +96,33 @@ const onViewItemSuccess = function (data) {
 
 const onViewItemFailure = function () {
   $('#message').text('View item failure!')
+  setTimeout(function () { $('#message').text('') }, 2000)
   $('#view-item').trigger('reset')
 }
 
 const onDeleteItemSuccess = function (data) {
   $('#message').text('Item deleted successfully!')
+  setTimeout(function () { $('#message').text('') }, 2000)
   $('#delete-item').trigger('reset')
   // setTimeout(function () { successMessage('') }, 4000)
 }
 
 const onDeleteItemFailure = function () {
   $('#message').text('Item delete failure!')
+  setTimeout(function () { $('#message').text('') }, 2000)
   $('#delete-item').trigger('reset')
 }
 
 const onUpdateItemSuccess = function (data) {
   $('#message').text('Successfully updated a new item!')
+  setTimeout(function () { $('#message').text('') }, 2000)
   $('#add-update-item-form').trigger('reset')
   // setTimeout(function () { successMessage('') }, 4000)
 }
 
 const onUpdateItemFailure = function (data) {
   $('.message').text('Update item failure!')
+  setTimeout(function () { $('#message').text('') }, 2000)
   $('#add-update-item-form').trigger('reset')
   // setTimeout(function () { failureMessage('') }, 4000)
 }
@@ -171,6 +184,7 @@ const onViewItemsSuccess2 = function (responseData) {
           .then(onUpdateItemSuccess)
           .catch(onUpdateItemFailure)
         $('#message').text('Item is out of stock!')
+        setTimeout(function () { $('#message').text('') }, 2000)
       } else {
         console.log('element', element)
         console.log('element.quantity', element.quantity)
@@ -201,6 +215,7 @@ const onViewItemsSuccess2 = function (responseData) {
         .catch(onAddItemFailure)
     } else {
       $('#message').text('Please try again! Enter valid price!')
+      setTimeout(function () { $('#message').text('') }, 2000)
     }
   }
 }
@@ -221,13 +236,17 @@ const onViewItemsSuccess3 = function (responseData) {
   console.log('itemResult.length ', itemResult.length)
   if (itemResult.length === 0) {
     $('#item-table').html('')
+    $('#view-item').trigger('reset')
+    $('#message').text('Please try again! Enter valid item!')
+    setTimeout(function () { $('#message').text('') }, 2000)
+  } else {
+    console.log('itemResult[0] ', itemResult[0])
+    console.log('itemResult[0].id ', itemResult[0].id)
+    $('#view-item').trigger('reset')
+    itemApi.viewItem(itemResult[0].id)
+      .then(onViewItemSuccess)
+      .catch(onViewItemFailure)
   }
-  console.log('itemResult[0] ', itemResult[0])
-  console.log('itemResult[0].id ', itemResult[0].id)
-
-  itemApi.viewItem(itemResult[0].id)
-    .then(onViewItemSuccess)
-    .catch(onViewItemFailure)
 }
 
 // responseData is from API
@@ -242,6 +261,9 @@ const onViewItemsSuccess4 = function (responseData) {
   if (itemResult.length === 0) {
     // item not exist
     $('#item-table').html('')
+    $('#delete-item').trigger('reset')
+    $('#message').text('Please try again! Enter valid item!')
+    setTimeout(function () { $('#message').text('') }, 2000)
   } else {
     // item exist
     console.log('itemResult[0] ', itemResult[0])
@@ -256,7 +278,12 @@ const onViewItemsSuccess4 = function (responseData) {
     itemApi.deleteItem(dataObj)
       .then(onDeleteItemSuccess)
       .catch(onDeleteItemFailure)
+    $('#item-table').html('')
   }
+  console.log('i want improve')
+  // itemApi.viewItems()
+  //   .then(onViewItemsSuccess)
+  //   .catch(onViewItemsFailure)
 }
 
 module.exports = {

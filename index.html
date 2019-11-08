@@ -12,7 +12,7 @@
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 </head>
 
-<body>
+<body id='body'>
   <!-- nav bar start -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
   <a class="navbar-brand" href="#">Inventory Management</a>
@@ -92,6 +92,7 @@
       <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
       <!-- Button trigger modal -->
+      <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
       <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
         <img src="https://i.imgur.com/mQUkipa.png" alt="Smiley face" height="42" width="42">
       </button>
@@ -105,20 +106,25 @@
 
 
   <!-- AUTHENTICATION -->
+    <section class="signupin">
+      <section id="projectname">
+      <h2 class='projectName'>Inventory</h2>
+      <h2 class='projectName'>Management</h2>
+    </section>
     <form id="sign-up" class="sign-up">
-      <h2 class='h2signup'>Sign Up</h2>
-      <input type='email' name="credentials[email]" placeholder="Enter email...">
-      <input type="password" name="credentials[password]" placeholder="Enter password..">
-      <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password...">
-      <button> Sign Up!</button>
+      <input class='box fancy_input' type='email' name="credentials[email]" placeholder="Enter email...">
+      <input class='box fancy_input' type="password" name="credentials[password]" placeholder="Enter password..">
+      <input class='box fancy_input' type="password" name="credentials[password_confirmation]" placeholder="Confirm password...">
+      <button class="box signUpButton"> Sign Up!</button>
     </form>
 
     <form id="sign-in" class="sign-in">
-      <h2 class='h2signin'>Sign In</h2>
-      <input type="email" name="credentials[email]" placeholder="Enter Email....">
-      <input type="password" name="credentials[password]" placeholder="Enter Password...">
-      <button> Sign In!</button>
+      <!-- <h2 class='h2signin'>Sign In</h2> -->
+      <input class='box fancy_input' type="email" name="credentials[email]" placeholder="Enter Email....">
+      <input class='box fancy_input' type="password" name="credentials[password]" placeholder="Enter Password...">
+      <button class="box signUpButton"> Sign In!</button>
     </form>
+  </section>
 
 
     <!-- <form id="change-password">
@@ -182,7 +188,7 @@
   <!-- INDEX ITEMS -->
   <form id="view-items">
     <!-- <h2 class='h2viewitems'>View All Items</h2> -->
-    <button class="btn btn-primary">View All Items!</button>
+    <button class="btn btn-info">View All Items!</button>
   </form>
 
 
@@ -245,12 +251,12 @@
           <h4 class='h2changepassword'>Change Password</h4>
           <input type="password" name="passwords[old]" placeholder="Enter old password....">
           <input type="password" name="passwords[new]" placeholder="Enter new password....">
-          <button>Change Password!</button>
+          <button class="btn btn-info" >Change Password!</button>
         </form>
         <br>
         <form id="sign-out">
           <h4 class='h2signout'>Sign Out</h4>
-          <button>Sign Out!</button>
+          <button class="btn btn-info">Sign Out!</button>
         </form>
       </div>
       <div class="modal-footer">
@@ -301,7 +307,7 @@
           <input id="update2-name" type="text" name="item[name]" placeholder="Enter Item Name....">
           <input id="update2-price" type="number" name="item[price]" placeholder="Enter Price....">
           <input id="update2-quantity" type="number" name="item[quantity]" placeholder="Enter Quantity....">
-          <button>Update Item</button>
+          <button class="btn btn-info">Update Item</button>
         </form>
       </div>
       <div class="modal-footer">
@@ -327,7 +333,7 @@
       <div class="modal-body">
         <form id="view-item">
           <input id='view-item-name' type="text" name="item[name]" placeholder="Enter Item Name...">
-          <button>View Item</button>
+          <button class="btn btn-info">View Item</button>
         </form>
       </div>
       <div class="modal-footer">
@@ -353,7 +359,7 @@
       <div class="modal-body">
         <form id="delete-item">
           <input id="delete-item-name" type="text" name="item[name]" placeholder="Enter Item Name To Delete...">
-          <button>Delete</button>
+          <button class="btn btn-info">Delete</button>
         </form>
       </div>
       <div class="modal-footer">

@@ -1,15 +1,153 @@
 @import '~bootstrap/scss/bootstrap';
+@import url("https://fonts.googleapis.com/css?family=Sacramento&display=swap");
 html {
     position: relative;
     min-height: 100%;
 }
 
 body {
-    // background-image: url('public/Gradient-Blue.webp');
-    // background-size: cover;
+  // background-color: black;
+    background-image: url('https://i.imgur.com/LCv6l1n.jpg');
+    background-repeat: no-repeat;
+    // background-size: 70%;
+
     padding-top: 4.5rem;
     margin-bottom: 4.5rem;
 }
+
+.clock {
+    color: #17D4FE;
+    // font-size: 60px;
+    font-family: Orbitron;
+    letter-spacing: 7px;
+}
+
+.projectName {
+  font-size: 5vh;
+  // line-height: calc(20px + 20vh);
+  text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: #fff6a9;
+  // font-family: "Sacramento", cursive;
+  text-align: center;
+  animation: blink 12s infinite;
+  -webkit-animation: blink 12s infinite;
+}
+
+.success {
+  color: #008000;
+}
+
+.failure {
+  color: #ff0000;
+}
+
+.box {
+  // border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto;
+}
+
+.fancy_input {
+      // @extend .transition;
+      appearance: none;
+      background-color: none;
+      border: 1px solid $red;
+      line-height: 0;
+      font-size: 17px;
+      width: 100%;
+      display: block;
+      box-sizing: border-box;
+      padding: 10px 15px;
+      border-radius: 60px;
+      color: $red;
+      font-weight: 100;
+      // letter-spacing: 0.01em;
+      position: relative;
+      z-index: 1;
+      }
+
+      .signUpButton_nav {
+        color: rgba(49,211,242,0.44);
+        // padding: 20px 40px;
+        margin: 0 10px;
+      	background: none;
+      	border: none;
+      	position: relative;
+      	text-transform: uppercase;
+      	font-weight: bold;
+      	letter-spacing: 3px;
+      	cursor: pointer;
+        // border: 2px solid red;
+        &::after {
+          content: '';
+        		position: absolute;
+        		top: 0;
+        		left: 0;
+        		bottom: 0;
+        		right: 0;
+        		border: 2px solid rgba(49,211,242,0.44);
+        		transition: transform .2s ;
+            transform: translate(3px, 3px);
+        }
+        &::before {
+          content: '';
+        		position: absolute;
+        		top: 0;
+        		left: 0;
+        		bottom: 0;
+        		right: 0;
+        		border: 2px solid rgba(49,211,242,0.44);
+        		transition: transform .2s ;
+            transform: translate(-3px, -3px);
+        }
+        &:hover{
+          &::after, &::before {
+            transform: translate(0);
+          }
+        }
+      }
+
+      .signUpButton {
+        color: red;
+        padding: 20px 40px;
+      	background: none;
+      	border: none;
+      	position: relative;
+      	text-transform: uppercase;
+      	font-weight: bold;
+      	letter-spacing: 3px;
+      	cursor: pointer;
+        // border: 2px solid red;
+        &::after {
+          content: '';
+        		position: absolute;
+        		top: 0;
+        		left: 0;
+        		bottom: 0;
+        		right: 0;
+        		border: 2px solid red;
+        		transition: transform .2s ;
+            transform: translate(3px, 3px);
+        }
+        &::before {
+          content: '';
+        		position: absolute;
+        		top: 0;
+        		left: 0;
+        		bottom: 0;
+        		right: 0;
+        		border: 2px solid red;
+        		transition: transform .2s ;
+            transform: translate(-3px, -3px);
+        }
+        &:hover{
+          &::after, &::before {
+            transform: translate(0);
+          }
+        }
+      }
 
 .footer {
   position: absolute;
@@ -71,19 +209,26 @@ body {
   }
 }
 
-  .sign-up {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+  // .sign-up {
+  //   position: absolute;
+  //   top: 40%;
+  //   left: 50%;
+  //   transform: translate(-50%, -50%);
+  // }
+  //
+  // .sign-in {
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 50%;
+  //   transform: translate(-50%, -50%);
+  // }
 
-  .sign-in {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+.signupin {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 .message {
 position: absolute;
