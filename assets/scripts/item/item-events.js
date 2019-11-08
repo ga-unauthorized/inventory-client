@@ -7,7 +7,7 @@ const onAddItem = function (event) {
 
   const form = event.target
   const formData = getFormFields(form)
-  console.log('addItem formData', formData)
+  // console.log('addItem formData', formData)
   itemApi.addItem(formData)
     .then(itemUi.onAddItemSuccess)
     .catch(itemUi.onAddItemFailure)
@@ -15,12 +15,12 @@ const onAddItem = function (event) {
 
 const onViewItem = function (event) {
   event.preventDefault()
-  console.log('events.js')
-  const form = event.target
-  const formData = getFormFields(form)
-  console.log('formData', formData)
-  console.log('formData.item', formData.item)
-  console.log('formData.item.name', formData.item.name)
+  // console.log('events.js')
+  // const form = event.target
+  // const formData = getFormFields(form)
+  // console.log('formData', formData)
+  // console.log('formData.item', formData.item)
+  // console.log('formData.item.name', formData.item.name)
   itemApi.viewItems()
     .then(itemUi.onViewItemsSuccess3)
     .catch(itemUi.onViewItemsFailure)
@@ -52,7 +52,7 @@ const onDeleteItem = function (event) {
 const onUpdateItem = function (event) {
   event.preventDefault()
   const formData = getFormFields(event.target)
-  console.log('formData', formData)
+  // console.log('formData', formData)
   itemApi.updateItem(formData)
     .then(itemUi.onUpdateItemSuccess)
     .catch(itemUi.onUpdateItemFailure)
@@ -60,8 +60,8 @@ const onUpdateItem = function (event) {
 
 const onUpdateItem2 = function (event) {
   event.preventDefault()
-  const formData = getFormFields(event.target)
-  console.log('update2 formData', formData)
+  // const formData = getFormFields(event.target)
+  // console.log('update2 formData', formData)
   itemApi.viewItems()
     .then(itemUi.onViewItemsSuccess2)
     .catch(itemUi.onViewItemsFailure)

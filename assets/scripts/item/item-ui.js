@@ -34,31 +34,31 @@ const onAddItemFailure = function (data) {
 }
 
 const onItemClickSuccess = function (responseData) {
-  console.log('onItemClickSuccess responseData', responseData)
-  console.log('onItemClickSuccess responseData.item.id', responseData.item.id)
-  console.log('onItemClickSuccess responseData.item.name', responseData.item.name)
-  console.log('onItemClickSuccess responseData.item.price', responseData.item.price)
-  console.log('onItemClickSuccess responseData.item.quantity', responseData.item.quantity)
-  console.log('onItemClickSuccess responseData.item.createdAt', responseData.item.createdAt)
-  console.log('onItemClickSuccess responseData.item.updatedAt', responseData.item.updatedAt)
+  // console.log('onItemClickSuccess responseData', responseData)
+  // console.log('onItemClickSuccess responseData.item.id', responseData.item.id)
+  // console.log('onItemClickSuccess responseData.item.name', responseData.item.name)
+  // console.log('onItemClickSuccess responseData.item.price', responseData.item.price)
+  // console.log('onItemClickSuccess responseData.item.quantity', responseData.item.quantity)
+  // console.log('onItemClickSuccess responseData.item.createdAt', responseData.item.createdAt)
+  // console.log('onItemClickSuccess responseData.item.updatedAt', responseData.item.updatedAt)
   const clickItemHTMl = itemClickmTemplate({ item: responseData })
-  console.log('clickItemHTMl', clickItemHTMl)
+  // console.log('clickItemHTMl', clickItemHTMl)
   $('#modal-body').html('')
   $('#modal-body').append(clickItemHTMl)
 
   const canvas = document.getElementById('canvas')
-  console.log('canvas', canvas)
+  // console.log('canvas', canvas)
   const infoQRCODE = 'Item Information:  Name: ' + responseData.item.name + ' Price: ' + responseData.item.price + ' Quantity: ' + responseData.item.quantity + ' CreateDate: ' + responseData.item.createdAt + ' UpdateDate: ' + responseData.item.updatedAt
-  console.log('infoQRCODE', infoQRCODE)
+  // console.log('infoQRCODE', infoQRCODE)
   QRCode.toCanvas(canvas, infoQRCODE, function (error) {
     if (error) console.error(error)
-    console.log('success!')
+    // console.log('success!')
   })
 }
 
 const onItemClick = function (event) {
-  console.log('event', event.target.parentElement)
-  console.log('event.id', event.target.parentElement.id)
+  // console.log('event', event.target.parentElement)
+  // console.log('event.id', event.target.parentElement.id)
   itemApi.viewItem(event.target.parentElement.id)
     .then(onItemClickSuccess)
     .catch()
@@ -69,7 +69,7 @@ const onViewItemsSuccess = function (responseData) {
   setTimeout(function () { $('#message').text('') }, 2000)
   $('#item-table').html('')
   // setTimeout(function () { successMessage('') }, 4000)
-  console.log('responseData.items ', responseData.items)
+  // console.log('responseData.items ', responseData.items)
   const viewItemsHtml = viewItemsTemplate({ items: responseData.items })
   // console.log(viewItemsHtml)
   // console.log('responseData.items', responseData.items)
@@ -88,7 +88,7 @@ const onViewItemSuccess = function (data) {
   setTimeout(function () { $('#message').text('') }, 2000)
   // setTimeout(function () { successMessage('') }, 4000)
   $('#item-table').html('')
-  console.log('data is ', data)
+  // console.log('data is ', data)
   const viewItemHtml = viewItemTemplate({ item: data })
   $('#item-table').append(viewItemHtml)
   $('#view-item').trigger('reset')
@@ -134,15 +134,15 @@ const showAll = function () {
 }
 
 const onViewItemsSuccess2 = function (responseData) {
-  console.log('onViewItemsSuccess2 responseData.items', responseData.items)
+  // console.log('onViewItemsSuccess2 responseData.items', responseData.items)
 
   const itemName = $('#update2-name').val()
   let itemPrice = $('#update2-price').val()
   const itemQuantity = $('#update2-quantity').val()
 
-  console.log('val', itemName)
-  console.log('val', itemPrice)
-  console.log('val', itemQuantity)
+  // console.log('val', itemName)
+  // console.log('val', itemPrice)
+  // console.log('val', itemQuantity)
 
   const dataObj = {
     item: {
@@ -169,9 +169,9 @@ const onViewItemsSuccess2 = function (responseData) {
 
       // console.log('quantityAfterUpdate', quantityAfterUpdate)
       if (quantityAfterUpdate <= 0) {
-        console.log('element', element)
-        console.log('element.quantity', element.quantity)
-        console.log('element.id', element.id)
+        // console.log('element', element)
+        // console.log('element.quantity', element.quantity)
+        // console.log('element.id', element.id)
 
         // if (itemPrice < 0) {
         //
@@ -185,7 +185,7 @@ const onViewItemsSuccess2 = function (responseData) {
             quantity: 0
           }
         }
-        console.log('dataObjOut', dataObjOut)
+        // console.log('dataObjOut', dataObjOut)
         itemApi.updateItem(dataObjOut)
           .then(onUpdateItemSuccess)
           .catch(onUpdateItemFailure)
@@ -194,9 +194,9 @@ const onViewItemsSuccess2 = function (responseData) {
         setTimeout(function () { $('#message').text('') }, 2000)
         // showAll()
       } else {
-        console.log('element', element)
-        console.log('element.quantity', element.quantity)
-        console.log('element.id', element.id)
+        // console.log('element', element)
+        // console.log('element.quantity', element.quantity)
+        // console.log('element.id', element.id)
 
         const dataObjOut = {
           item: {
@@ -206,20 +206,20 @@ const onViewItemsSuccess2 = function (responseData) {
             quantity: quantityAfterUpdate
           }
         }
-        console.log('dataObjOut', dataObjOut)
+        // console.log('dataObjOut', dataObjOut)
         itemApi.updateItem(dataObjOut)
           .then(onUpdateItemSuccess)
           .catch(onUpdateItemFailure)
         // $('#item-table').html('')
         // showAll()
       }
-      console.log('there it is')
+      // console.log('there it is')
     }
   })
-  console.log('num', num)
+  // console.log('num', num)
   if (num === 0) {
     if (itemPrice >= 0 && itemQuantity >= 0) {
-      console.log('dataObj', dataObj)
+      // console.log('dataObj', dataObj)
       itemApi.addItem(dataObj)
         .then(onAddItemSuccess)
         .catch(onAddItemFailure)
@@ -233,27 +233,27 @@ const onViewItemsSuccess2 = function (responseData) {
 }
 
 const onViewItemsSuccess3 = function (responseData) {
-  console.log('onViewItemsSuccess3 responseData', responseData)
-  console.log('onViewItemsSuccess3 responseData.items', responseData.items)
+  // console.log('onViewItemsSuccess3 responseData', responseData)
+  // console.log('onViewItemsSuccess3 responseData.items', responseData.items)
 
   // var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present']
   // const result = words.filter(word => word.length > 6)
 
   const itemArray = responseData.items
-  console.log('itemArray ', itemArray)
+  // console.log('itemArray ', itemArray)
   const itemName = $('#view-item-name').val()
-  console.log('itemName ', itemName)
+  // console.log('itemName ', itemName)
   const itemResult = itemArray.filter(item => item.name === itemName)
-  console.log('itemResult ', itemResult)
-  console.log('itemResult.length ', itemResult.length)
+  // console.log('itemResult ', itemResult)
+  // console.log('itemResult.length ', itemResult.length)
   if (itemResult.length === 0) {
     $('#item-table').html('')
     $('#view-item').trigger('reset')
     $('#message').text('Please try again! Enter valid item!')
     setTimeout(function () { $('#message').text('') }, 2000)
   } else {
-    console.log('itemResult[0] ', itemResult[0])
-    console.log('itemResult[0].id ', itemResult[0].id)
+    // console.log('itemResult[0] ', itemResult[0])
+    // console.log('itemResult[0].id ', itemResult[0].id)
     $('#view-item').trigger('reset')
     itemApi.viewItem(itemResult[0].id)
       .then(onViewItemSuccess)
@@ -263,13 +263,13 @@ const onViewItemsSuccess3 = function (responseData) {
 
 // responseData is from API
 const onViewItemsSuccess4 = function (responseData) {
-  console.log('responseData', responseData)
+  // console.log('responseData', responseData)
   const itemArray = responseData.items
-  console.log('itemArray ', itemArray)
+  // console.log('itemArray ', itemArray)
   const itemName = $('#delete-item-name').val()
   const itemResult = itemArray.filter(item => item.name === itemName)
-  console.log('itemResult ', itemResult)
-  console.log('itemResult.length ', itemResult.length)
+  // console.log('itemResult ', itemResult)
+  // console.log('itemResult.length ', itemResult.length)
   if (itemResult.length === 0) {
     // item not exist
     $('#item-table').html('')
@@ -278,21 +278,21 @@ const onViewItemsSuccess4 = function (responseData) {
     setTimeout(function () { $('#message').text('') }, 2000)
   } else {
     // item exist
-    console.log('itemResult[0] ', itemResult[0])
-    console.log('itemResult[0].id ', itemResult[0].id)
+    // console.log('itemResult[0] ', itemResult[0])
+    // console.log('itemResult[0].id ', itemResult[0].id)
     const dataObj = {
       item: {
         id: itemResult[0].id
       }
     }
-    console.log('dataObj', dataObj)
+    // console.log('dataObj', dataObj)
 
     itemApi.deleteItem(dataObj)
       .then(onDeleteItemSuccess)
       .catch(onDeleteItemFailure)
     $('#item-table').html('')
   }
-  console.log('i want improve')
+  // console.log('i want improve')
   // itemApi.viewItems()
   //   .then(onViewItemsSuccess)
   //   .catch(onViewItemsFailure)

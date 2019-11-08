@@ -21,7 +21,7 @@ const onSignUpSuccess = (responseData) => {
   setTimeout(function () { successMessage('') }, 1000)
   $('#message').css('color', 'green')
   $('#sign-up').trigger('reset')
-  console.log('responseData', responseData)
+  // console.log('responseData', responseData)
 }
 
 const onSignUpFailure = () => {
@@ -35,7 +35,7 @@ const onSignInSuccess = (responseData) => {
   setTimeout(function () { successMessage('') }, 1000)
   store.user = responseData.user
   $('#message').css('color', 'green')
-  console.log('responseData', responseData)
+  // console.log('responseData', responseData)
   $('#sign-in').trigger('reset')
   $('#sign-up, #sign-in').hide()
   $('#change-password').show()
@@ -61,7 +61,7 @@ const onChangePasswordSuccess = function (responseData) {
   setTimeout(function () { successMessage('') }, 1000)
   $('#message').css('color', 'green')
   setTimeout(function () { successMessage('') }, 1000)
-  console.log('responseData', responseData)
+  // console.log('responseData', responseData)
   $('#change-password').trigger('reset')
 }
 
@@ -77,7 +77,7 @@ const onSignOutSuccess = function (responseData) {
   setTimeout(function () { successMessage('') }, 1000)
   $('#message').css('color', 'green')
   $('#sign-up').trigger('reset')
-  console.log('responseData', responseData)
+  // console.log('responseData', responseData)
   $('#sign-up, #sign-in').show()
   $('#change-password').hide()
   $('#sign-out').hide()
