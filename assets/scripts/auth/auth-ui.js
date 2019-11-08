@@ -83,6 +83,7 @@ const onSignOutSuccess = function (responseData) {
   $('#sign-out').hide()
   $('.navbar').hide()
   $('.footer').hide()
+  $('#item-table').html('')
   $('#projectname').show()
   $('.table').hide()
   $('#view-items').hide()

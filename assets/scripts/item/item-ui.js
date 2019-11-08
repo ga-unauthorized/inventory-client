@@ -127,6 +127,12 @@ const onUpdateItemFailure = function (data) {
   // setTimeout(function () { failureMessage('') }, 4000)
 }
 
+const showAll = function () {
+  itemApi.viewItems()
+    .then(onViewItemsSuccess)
+    .catch(onViewItemsFailure)
+}
+
 const onViewItemsSuccess2 = function (responseData) {
   console.log('onViewItemsSuccess2 responseData.items', responseData.items)
 
@@ -183,8 +189,10 @@ const onViewItemsSuccess2 = function (responseData) {
         itemApi.updateItem(dataObjOut)
           .then(onUpdateItemSuccess)
           .catch(onUpdateItemFailure)
+        $('#item-table').html('')
         $('#message').text('Item is out of stock!')
         setTimeout(function () { $('#message').text('') }, 2000)
+        // showAll()
       } else {
         console.log('element', element)
         console.log('element.quantity', element.quantity)
@@ -202,19 +210,23 @@ const onViewItemsSuccess2 = function (responseData) {
         itemApi.updateItem(dataObjOut)
           .then(onUpdateItemSuccess)
           .catch(onUpdateItemFailure)
+        // $('#item-table').html('')
+        // showAll()
       }
       console.log('there it is')
     }
   })
   console.log('num', num)
   if (num === 0) {
-    if (itemPrice >= 0) {
+    if (itemPrice >= 0 && itemQuantity >= 0) {
       console.log('dataObj', dataObj)
       itemApi.addItem(dataObj)
         .then(onAddItemSuccess)
         .catch(onAddItemFailure)
+      $('#item-table').html('')
+      showAll()
     } else {
-      $('#message').text('Please try again! Enter valid price!')
+      $('#message').text('Please try again! Enter valid price and quantity!')
       setTimeout(function () { $('#message').text('') }, 2000)
     }
   }
